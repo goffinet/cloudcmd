@@ -21,3 +21,4 @@ bin/release.js
 client
 server_
 
+!.madrun.mjs
