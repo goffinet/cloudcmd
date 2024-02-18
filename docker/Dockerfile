@@ -1,7 +1,12 @@
-FROM node:lts-buster
+FROM almalinux/9-base
+
+RUN dnf -y module install nodejs:20/common && \
+    dnf -y install python3 make automake gcc gcc-c++
+
 LABEL maintainer="goffinet"
 
 RUN mkdir -p /usr/src/app
+
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/

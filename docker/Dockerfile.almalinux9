@@ -1,0 +1,17 @@
+FROM almalinux/9-base
+
+RUN dnf -y module install nodejs:20/common && \
+    dnf -y install python3 make automake gcc gcc-c++
+
+RUN npm i gritty -g && \
+    npm i cloudcmd -g
+
+WORKDIR /
+
+ENV cloudcmd_terminal true
+ENV cloudcmd_terminal_path gritty
+ENV cloudcmd_open false
+
+EXPOSE 8000
+
+ENTRYPOINT ["cloudcmd"]
